@@ -24,7 +24,7 @@ import time
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-KIT_VERSION = "0.1.0"
+KIT_VERSION = "0.2.0"
 KIT_REPO = "fumito-ito/sdlc-kit"
 MARKETPLACE = "sdlc-kit"
 PLUGIN = "sdlc"
