@@ -1,0 +1,20 @@
+{
+  "name": "sdlc",
+  "version": "0.1.0",
+  "description": "Artifact-driven SDLC (intent → spec → plan → build → cross-agent review) with deterministic guards, git hooks and a CI gate. Shared with Claude Code.",
+  "author": {
+    "name": "fumito-ito"
+  },
+  "homepage": "https://github.com/fumito-ito/sdlc-kit",
+  "repository": "https://github.com/fumito-ito/sdlc-kit",
+  "keywords": ["sdlc", "workflow", "spec", "plan", "review", "hooks", "claude-code"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "SDLC Kit",
+    "shortDescription": "intent → spec → plan → build → cross-agent review, with guards",
+    "longDescription": "Runs an artifact-driven SDLC: every change is captured as intent.md, spec.md and plan.md under docs/changes/, implemented against an approved plan, verified with one command and reviewed by the other agent (Codex ↔ Claude Code). Deterministic guards run as hooks, git hooks and a CI gate.",
+    "developerName": "fumito-ito",
+    "category": "Productivity"
+  }
+}

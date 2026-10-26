@@ -1,0 +1,13 @@
+{
+  "session_id": "abc123",
+  "cwd": "/repo",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "MultiEdit",
+  "tool_input": {
+    "file_path": "/repo/src/app.py",
+    "edits": [
+      {"old_string": "a", "new_string": "one"},
+      {"old_string": "b", "new_string": "two"}
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python3 -m unittest discover -s tests -v
+
+  test-macos:
+    # macOS system python3 (from the Command Line Tools) is what the hooks will use on most Macs.
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: /usr/bin/python3 --version && /usr/bin/python3 -m unittest discover -s tests -v
+
+  validate-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Validate marketplace and plugin manifests
+        run: |
+          claude plugin validate .
+          claude plugin validate plugins/sdlc

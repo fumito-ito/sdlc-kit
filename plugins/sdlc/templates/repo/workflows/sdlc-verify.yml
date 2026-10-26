@@ -1,0 +1,19 @@
+# Owned by this repository (created once by sdlc-kit). Adjust the runner and setup steps to the stack,
+# e.g. `runs-on: macos-latest` for Xcode projects, or add setup-node / setup-python steps.
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [{{base_branch}}]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Verify (build + test + lint)
+        run: python3 .sdlc/bin/sdlc.py verify
